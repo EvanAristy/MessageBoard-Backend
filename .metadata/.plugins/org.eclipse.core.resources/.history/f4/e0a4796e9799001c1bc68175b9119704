@@ -1,0 +1,5 @@
+package com.messegeboard.backend.exceptions;
+
+public class ResourceNotFoundException {
+
+}

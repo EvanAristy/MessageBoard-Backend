@@ -1,0 +1,5 @@
+package com.messegeboard.backend.models;
+
+public class User {
+
+}
