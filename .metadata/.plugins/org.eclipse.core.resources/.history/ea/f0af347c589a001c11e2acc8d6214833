@@ -1,0 +1,55 @@
+package com.messageboard.backend.models;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name="messages")
+public class Message {
+
+	@Id
+	@Column
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+	@Column
+	private String post;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column
+	private int time;
+	@Column
+	private String date;
+	@Column
+	private int user_id;
+	
+	public int getId() {
+		return id;
+	}
+	
+	public String getPost() {
+		return post;
+	}
+	
+	public void setPost(String post) {
+		this.post = post;
+	}
+	
+	public String getTime() {
+		return time;
+	}
+	
+	public String getDate() {
+		return date;
+	}
+	
+	public int getUser_id() {
+		return user_id;
+	}
+		
+	
+}
