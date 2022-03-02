@@ -1,3 +1,10 @@
 1646161809900	Rename package 'com.example.demo'
 1646161986089	Rename type 'DemoApplication'
 1646162192425	Delete element
+1646238398811	Rename package 'com.messegeboard.backend'
+1646238412422	Rename package 'com.messegeboard.backend.controllers'
+1646238429591	Rename package 'com.messegeboard.backend.exceptions'
+1646238443922	Rename package 'com.messegeboard.backend.models'
+1646238530976	Rename type 'MessegeBoardApplication'
+1646238625829	Delete element
+1646238730054	Rename type 'Messages'

@@ -1,0 +1,5 @@
+package com.messageboard.backend.models;
+
+public class Messages {
+
+}
