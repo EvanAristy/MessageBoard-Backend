@@ -39,13 +39,13 @@ public class UserController {
 				return ResponseEntity.ok(users);
 	}
 	
-	@GetMapping("allusers/{firstname}")
-	public List<User> getUsersByFirstname(@PathVariable String firstname) {
-		List<User> users = userRepo.findByFirstname(firstname);
+	@GetMapping("allusers/{nickname}")
+	public List<User> getUsersByNickname(@PathVariable String nickname) {
+		List<User> users = userRepo.findByNickname(nickname);
 		if(users.isEmpty()) {
-			System.out.println(new ResourceNotFoundException("User(s) with the name " + firstname + " not found."));
+			System.out.println(new ResourceNotFoundException("User(s) with the name " + nickname + " not found."));
 		}
-		return userRepo.findByFirstname(firstname);
+		return userRepo.findByNickname(nickname);
 	}
 	
 	@PostMapping("adduser")

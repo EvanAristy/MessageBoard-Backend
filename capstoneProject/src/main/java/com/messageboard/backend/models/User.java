@@ -22,6 +22,24 @@ public class User {
 	@Column
 	private String nickname;
 	
+	public User() {}
+	
+	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", nickname=" + nickname
+				+ "]";
+	}
+
+
+	public User(String firstname, String lastname, String nickname) {
+		super();
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.nickname = nickname;
+	}
+
+
 	public int getId() {
 		return id;
 	}

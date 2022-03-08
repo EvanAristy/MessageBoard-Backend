@@ -28,21 +28,27 @@ public class Message {
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="date")
 	private Date date;
-//	@Column(name="user_id")
-//	private int user_id;
 	
 	@PrePersist
 	private void onCreate() {
 		this.date=new Date();
 	}
 	
+	public Message() {}
+	
+	
+public Message(String post, Date date, User user) {
+		this.post = post;
+		this.date = date;
+		this.user = user;
+	}
+
+
 //	Creating one to one relationship between user and message
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="user_id")
 	private User user;
 	
-	
-
 	public User getUser() {
 		return user;
 	}
@@ -71,17 +77,13 @@ public class Message {
 		this.date = date;
 	}
 
-//	public void setUser_id(int user_id) {
-//		this.user_id = user_id;
-//	}
-
 	public Date getDate() {
 		return date;
 	}
 	
-//	public int getUser_id() {
-//		return user_id;
-//	}
-		
+	public void addUser(User user) {
+		this.setUser(user);
+	}
+	
 	
 }

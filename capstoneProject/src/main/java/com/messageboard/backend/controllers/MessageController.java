@@ -17,7 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.messageboard.backend.exceptions.ResourceNotFoundException;
 import com.messageboard.backend.models.Message;
+import com.messageboard.backend.models.User;
+//import com.messageboard.backend.models.User;
 import com.messageboard.backend.repositories.MessageRepository;
+import com.messageboard.backend.repositories.UserRepository;
+//import com.messageboard.backend.repositories.UserRepository;
 
 @RestController
 @CrossOrigin
@@ -26,6 +30,9 @@ public class MessageController {
 	
 	@Autowired
 	private MessageRepository messageRepo;
+	
+	@Autowired
+	private UserRepository userRepo;
 	
 	@GetMapping("allmessages")
 	public List<Message> getAllMessages() {
@@ -39,8 +46,15 @@ public class MessageController {
 				return ResponseEntity.ok(messages);
 	}
 	
-	@PostMapping("addmessage")
-	public Message newMessage(@RequestBody Message messages) {
+	@PostMapping("addmessage/{username}")
+	public Message newMessage(@RequestBody Message messages, @PathVariable String username) {
+		List<User> userList = userRepo.findByNickname(username);
+		User user = userList.get(0);
+		messages.setUser(user);
+		messageRepo.save(messages);
+					
+			System.out.println("GGGGGG" + user.toString());
+		
 		return messageRepo.save(messages);
 	}
 	

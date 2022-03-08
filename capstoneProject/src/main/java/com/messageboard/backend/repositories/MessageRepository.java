@@ -11,5 +11,6 @@ import com.messageboard.backend.models.Message;
 public interface MessageRepository extends JpaRepository<Message, Integer> {
 	
 	List<Message> findById(String id);
+	public Message save(Message message);
 
 }
